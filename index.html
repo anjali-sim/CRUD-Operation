@@ -57,7 +57,7 @@
 
     <!-- Form Section -->
     <div class="container border border-dark p-5 mt-5">
-        <form>
+        <form onsubmit="return false;">
             <legend class="mb-4"><strong>Product Form</strong></legend>
             <div class="form-group">
                 <label for="id" hidden>Product ID</label>
@@ -65,22 +65,25 @@
             </div>
             <div class="form-group">
                 <label for="name">Product Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter product name">
+                <input type="text" class="form-control" id="name" placeholder="Enter product name"
+                    onkeyup="validateForm()">
                 <span id="nameWarning"></span>
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" id="price" placeholder="Enter product price">
+                <input type="number" class="form-control" id="price" placeholder="Enter product price"
+                    onkeyup="validateForm()">
                 <span id="priceWarning"></span>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"></textarea>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"
+                    onkeyup="validateForm()"></textarea>
                 <span id="descriptionWarning"></span>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control-file" id="image">
+                <input type="file" class="form-control-file" id="image" onkeyup="validateForm()">
                 <span id="imageWarning"></span>
             </div>
             <button type="text" class="btn btn-success mb-2" id="submit">Add Data</button>
@@ -89,27 +92,27 @@
     </div>
     <!-- Form Section -->
 
-<!-- Displaying the product contents in the table -->
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-12">
-            <table class="table table-bordered" id="crudTable">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+    <!-- Displaying the product contents in the table -->
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table table-bordered" id="crudTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<!-- Displaying the product contents in the table -->
+    <!-- Displaying the product contents in the table -->
 
 
     <!-- Script Links -->
