@@ -57,7 +57,7 @@
 
     <!-- Form Section -->
     <div class="container border border-dark p-5 mt-5">
-        <form onsubmit="return false;">
+        <form>
             <legend class="mb-4"><strong>Product Form</strong></legend>
             <div class="form-group">
                 <label for="id" hidden>Product ID</label>
@@ -88,6 +88,29 @@
         </form>
     </div>
     <!-- Form Section -->
+
+<!-- Displaying the product contents in the table -->
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-bordered" id="crudTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Displaying the product contents in the table -->
+
 
     <!-- Script Links -->
     <script src="./src/script/script.js"></script>

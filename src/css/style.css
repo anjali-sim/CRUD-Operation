@@ -1,3 +1,8 @@
+/* Style for the update button */
+#update{
+    display: none;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -9,4 +14,30 @@ body{
 
 .container{
     background-color: white;
+}
+
+span i{
+    color : seagreen;
+}
+
+/* Style for the form */
+.form-group{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+.form-group label{
+    flex-basis: 25%;
+}
+.form-group input, .form-group textarea{
+    flex-basis: 54%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #999;
+    color: #333;
+    font-size: 16px;
 }
