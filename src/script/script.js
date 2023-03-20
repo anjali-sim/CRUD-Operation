@@ -78,4 +78,88 @@ function validateForm() {
       '<i class="fa-sharp fa-regular fa-circle-check"></i>';
     return true;
   }
+
+  /**
+ * @function displayData
+ * @description to display the data in the table format
+ * @params void
+ * @returns void
+ * Examples :
+ * - If the user adds the data and submits the form, then that data is displayed in the table
+ */
+function displayData() {
+    let productList;
+    if (localStorage.getItem("productList") == null) {
+      productList = [];
+    } else {
+      productList = JSON.parse(localStorage.getItem("productList"));
+  
+      let result = "";
+  
+      productList.forEach(function (element, index) {
+          result += "<tr>";
+          result += "<td>" + element.id + "</td>";
+          result += "<td>" + element.name + "</td>";
+          result +=
+          `<td> <img src=` +
+          element.image +
+          ` style="width:100%;height:98%"> </td>`;
+          result += "<td>" + element.price + "</td>";
+          result += "<td>" + element.description + "</td>";
+          result +=
+          '<td><button onclick="updateData(' +
+          index +
+          ')" class="btn btn-warning mb-2">Edit</button>&emsp;<button onclick="deleteData(' +
+          index +
+          ')" class="btn btn-danger mb-2">Delete</button></td>';
+          result += "</tr>";
+      });
+  
+      document.querySelector("#crudTable tbody").innerHTML = result;
+    }
+  }
+  
+  // Loads all data when document or page is loaded
+  document.onload = displayData();
+  
+  /**
+   * @function addData
+   * @description to store the data in the local storage
+   * @params void
+   * @returns void
+   * Examples :
+   * - The data entered by the user gets stored in the local storage and through displayData the data is displayed in the table
+   */
+  async function addData() {
+    if (validateForm() == true) {
+      const id = Math.floor(Math.random() * 1000);
+      const name = document.getElementById("name").value;
+      const image = await convertBase64(document.getElementById("image").files[0]);
+      const price = document.getElementById("price").value;
+      const description = document.getElementById("description").value;
+  
+      let productList;
+      if (localStorage.getItem("productList") == null) {
+        productList = [];
+      } else {
+        productList = JSON.parse(localStorage.getItem("productList"));
+      }
+      productList.push({
+        id: id,
+        name: name,
+        image: image,
+        price: price,
+        description: description,
+      });
+  
+      localStorage.setItem("productList", JSON.stringify(productList));
+      displayData();
+      document.getElementById("id").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("image").value = "";
+      document.getElementById("price").value = "";
+      document.getElementById("description").value = "";
+    }
+  }
+  
   
