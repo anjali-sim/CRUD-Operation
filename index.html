@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./src/css/style.css">
+    <!-- CSS Link -->
+
+    <!-- Icon Link -->
+    <link rel="icon" href="./src/assets/images/computer.png">
+    <!-- Icon Link -->
+
+    <!-- Bootstrap CSS Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootstrap CSS Link -->
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
+        <a class="navbar-brand text-white">Product Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Sort
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-dark" href="#" value="productid">Sort By ID</a>
+                        <a class="dropdown-item text-dark" href="#" value="productname">Sort By Name</a>
+                        <a class="dropdown-item text-dark" href="#">Sort By Price</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    id="searchProduct">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="text">Search</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation Bar -->
+
+    <!-- Form Section -->
+    <div class="container border border-dark p-5 mt-5">
+        <form onsubmit="return false;">
+            <legend class="mb-4"><strong>Product Form</strong></legend>
+            <div class="form-group">
+                <label for="id" hidden>Product ID</label>
+                <input type="text" class="form-control" id="id" hidden>
+            </div>
+            <div class="form-group">
+                <label for="name">Product Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter product name">
+                <span id="nameWarning"></span>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Enter product price">
+                <span id="priceWarning"></span>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"></textarea>
+                <span id="descriptionWarning"></span>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image">
+                <span id="imageWarning"></span>
+            </div>
+            <button type="text" class="btn btn-success mb-2" id="submit">Add Data</button>
+            <button type="text" class="btn btn-primary mb-2" id="update">Update</button>
+        </form>
+    </div>
+    <!-- Form Section -->
+
+    <!-- Script Links -->
+    <script src="./src/script/script.js"></script>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <!-- Script Links -->
+</body>
+
+</html>
