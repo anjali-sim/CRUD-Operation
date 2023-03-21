@@ -162,4 +162,21 @@ function displayData() {
     }
   }
   
+/**
+ * @function deleteData
+ * @description to delete the data from the local storage
+ * @param {*} index
+ * @returns void
+ */
+function deleteData(index) {
+    let productList;
+    if (localStorage.getItem("productList") == null) {
+      productList = [];
+    } else {
+      productList = JSON.parse(localStorage.getItem("productList"));
+    }
   
+    productList.splice(index, 1);
+    localStorage.setItem("productList", JSON.stringify(productList));
+    displayData();
+  }
