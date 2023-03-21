@@ -230,3 +230,62 @@ async function updateData(index) {
     };
   }
   
+  /**
+ * @function displaySearchedData
+ * @description to display only the searched data in the table
+ * @param {*} products
+ * @returns void
+ * Examples :
+ * - If the user entered a particular product name, then only that data will be displayed in the table
+ */
+function displaySearchedData(products) {
+    let obj = products;
+  
+    var result = "";
+  
+    products.forEach(function (element, index) {
+      result += "<tr>";
+      result += "<td>" + element.id + "</td>";
+      result += "<td>" + element.name + "</td>";
+      result +=
+        `<td> <img src=` +
+        element.image +
+        ` style="width:100%;height:98%"> </td>`;
+      result += "<td>" + element.price + "</td>";
+      result += "<td>" + element.description + "</td>";
+      result +=
+        '<td><button onclick="updateData(' +
+        index +
+        ')" class="btn btn-warning mb-3">Edit</button>&emsp;<button onclick="deleteData(' +
+        index +
+        ')" class="btn btn-danger">Delete</button></td>';
+      result += "</tr>";
+    });
+    document.querySelector("#crudTable tbody").innerHTML = result;
+    document.getElementById("products-display").innerHTML = data;
+  }
+  
+  /**
+   * @function searchProductLists
+   * @description to search a particular product from the list from the local storage
+   * @params void
+   * @returns void
+   * Examples :
+   * - If the user have entered 'aa' in the search bar, then this function will search for 'aa' in the local storage
+   */
+  function searchProductLists() {
+    console.log("in search");
+    const search_val = document.getElementById("searchProduct").value;
+    console.log(search_val);
+    let sortedItem = [];
+    let products = JSON.parse(localStorage.getItem("productList")) ?? [];
+    let regex = new RegExp(search_val, "i");
+    for (let element of products) {
+      const item = element;
+      if (regex.test(item.name)) {
+        sortedItem.push(element);
+      }
+    }
+    console.log(sortedItem);
+    displaySearchedData(sortedItem);
+  }
