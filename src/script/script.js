@@ -289,3 +289,24 @@ function displaySearchedData(products) {
     console.log(sortedItem);
     displaySearchedData(sortedItem);
   }
+
+  /**
+ * @function sortItems
+ * @description
+ * @params
+ * @returns
+ */
+function sortItems(sortvalue) {
+    let products = JSON.parse(localStorage.getItem("productList")) ?? [];
+    console.log(products);
+    if (sortvalue === "productid") {
+      products = products.sort((a, b) => a.id - b.id);
+    } else if (sortvalue === "productname") {
+      products = products.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      products = products.sort((a, b) => a.price - b.price);
+    }
+    localStorage.setItem("productList", JSON.stringify(products));
+    console.log(products);
+    displayData();
+  }
