@@ -180,3 +180,53 @@ function deleteData(index) {
     localStorage.setItem("productList", JSON.stringify(productList));
     displayData();
   }
+
+  /**
+ * @function updateData
+ * @description to update the data from the local storage
+ * @param {*} index
+ * @returns void
+ * Examples :
+ * - If the user has changed any particular input field, then it will be updated and stored in the local storage and will be displayed in the table
+ */
+async function updateData(index) {
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("update").style.display = "block";
+    var productList;
+    if (localStorage.getItem("productList") == null) {
+      productList = [];
+    } else {
+      productList = JSON.parse(localStorage.getItem("productList"));
+    }
+  
+    document.getElementById("id").value = productList[index].id;
+    document.getElementById("name").value = productList[index].name;
+    document.getElementById("price").value = productList[index].price;
+    document.getElementById("description").value = productList[index].description;
+  
+    document.querySelector("#update").onclick = async function () {
+      if (validateForm() == true) {
+        productList[index].id = document.getElementById("id").value;
+        productList[index].name = document.getElementById("name").value;
+        productList[index].price = document.getElementById("price").value;
+        productList[index].description =
+          document.getElementById("description").value;
+        productList[index].image = await convertBase64(
+          document.getElementById("image").files[0]
+        );
+  
+        localStorage.setItem("productList", JSON.stringify(productList));
+        displayData();
+  
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("price").value = "";
+        document.getElementById("description").value = "";
+  
+        //update button will hide and submit button will be shown
+        document.getElementById("submit").style.display = "block";
+        document.getElementById("update").style.display = "none";
+      }
+    };
+  }
+  
