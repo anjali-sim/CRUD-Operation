@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #E4E4E4 !important;
+}
+
+.container {
+    background-color: white;
+}
+
+/* Style for the heading */
+.header-font-style {
+    font-size: 15px;
+}
+
+/* Style for sort buttons */
+.button {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+}
+
+/* Style for displaying the tick mark on proper validation */
+span i {
+    color: seagreen;
+}
+
+/* Style for the form */
+.form-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+.form-group label {
+    flex-basis: 25%;
+}
+
+.form-group input,
+.form-group textarea {
+    flex-basis: 54%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #999;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Style for Update button */
+#update {
+    display: none;
+}
+
+/* Style for the table */
+#crudTable {
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95% !important;
+    }
+}
