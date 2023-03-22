@@ -1,37 +1,56 @@
-/* Style for the update button */
-#update{
-    display: none;
-}
-
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #E4E4E4 !important;
 }
 
-.container{
+.container {
     background-color: white;
 }
 
-span i{
-    color : seagreen;
+/* Style for the heading */
+.header-font-style {
+    font-size: 15px;
+}
+
+/* Style for sort buttons */
+.button {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: grey;
+}
+
+
+/* Style for displaying the tick mark on proper validation */
+span i {
+    color: seagreen;
 }
 
 /* Style for the form */
-.form-group{
+.form-group {
     width: 100%;
     display: flex;
     align-items: center;
     margin: 10px 0;
     position: relative;
 }
-.form-group label{
+
+.form-group label {
     flex-basis: 25%;
 }
-.form-group input, .form-group textarea{
+
+.form-group input,
+.form-group textarea {
     flex-basis: 54%;
     background: transparent;
     border: 0;
@@ -40,4 +59,14 @@ span i{
     border-bottom: 1px solid #999;
     color: #333;
     font-size: 16px;
+}
+
+/* Style for Update button */
+#update {
+    display: none;
+}
+
+/* Style for the table */
+#crudTable {
+    font-weight: 600;
 }

@@ -1,3 +1,18 @@
+// for selecting all elements having button as class
+const buttons = document.querySelectorAll(".button");
+
+// for traversing through all the buttons and adding an eventlistener to them to remain selected on clicking on it until another button is selected
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((btn) => {
+        if (btn !== button) {
+          btn.classList.remove("selected");
+        }
+      });
+      button.classList.add("selected");
+    });
+  });
+
 /**
  * @function convertBase64
  * @description
@@ -35,14 +50,14 @@ const convertBase64 = (file) => {
     let price = document.getElementById("price").value;
     let description = document.getElementById("description").value;
   
-    if (name == "") {
+    if (name === "") {
       nameWarning.innerText = "Name is Required.";
       document.getElementById("nameWarning").style.color = "red";
       return false;
     }
     nameWarning.innerHTML = '<i class="fa-sharp fa-regular fa-circle-check"></i>';
   
-    if (price == "") {
+    if (price === "") {
       document.getElementById("priceWarning").innerText = "Price is Required.";
       document.getElementById("priceWarning").style.color = "red";
       return false;
@@ -62,7 +77,7 @@ const convertBase64 = (file) => {
       return false;
     }
   
-    if (price == 0) {
+    if (price === 0) {
       document.getElementById("priceWarning").innerText =
         "Price must not start with zero(0).";
       document.getElementById("priceWarning").style.color = "red";
@@ -71,7 +86,7 @@ const convertBase64 = (file) => {
     priceWarning.innerHTML =
       '<i class="fa-sharp fa-regular fa-circle-check"></i>';
   
-    if (description == "") {
+    if (description === "") {
       document.getElementById("descriptionWarning").innerText =
         "Description is Required.";
       document.getElementById("descriptionWarning").style.color = "red";
@@ -80,7 +95,7 @@ const convertBase64 = (file) => {
     descriptionWarning.innerHTML =
       '<i class="fa-sharp fa-regular fa-circle-check"></i>';
   
-    if (image == "") {
+    if (image === "") {
       document.getElementById("imageWarning").innerText = "Image is Required.";
       document.getElementById("imageWarning").style.color = "red";
       return false;
@@ -105,7 +120,7 @@ const convertBase64 = (file) => {
     const fileInput = document.getElementById("image");
     const file = fileInput.files[0];
     const fileSizeKB = file.size / 1024;
-    if(fileSizeKB > 2048){
+    if(fileSizeKB > 1024){
       document.getElementById("imageWarning").innerText =
       "Image Size must be of less than 1 Mb.";
     document.getElementById("imageWarning").style.color = "red";
@@ -139,7 +154,7 @@ const convertBase64 = (file) => {
         result += "<td>" + element.id + "</td>";
         result += "<td>" + element.name + "</td>";
         result +=
-          `<td> <img class = "rounded mx-auto d-block" src=` +
+          `<td> <img src=` +
           element.image +
           ` style="width:80%;height:70%;"> </td>`;
         result += "<td>" + element.price + "</td>";
@@ -281,7 +296,7 @@ const convertBase64 = (file) => {
   function displaySearchedData(products) {
     let obj = products;
   
-    var result = "";
+    let result = "";
   
     products.forEach(function (element, index) {
       result += "<tr>";
@@ -290,7 +305,7 @@ const convertBase64 = (file) => {
       result +=
         `<td> <img src=` +
         element.image +
-        ` style="width:100%;height:98%"> </td>`;
+        ` style="width:80%;height:70%"> </td>`;
       result += "<td>" + element.price + "</td>";
       result += "<td>" + element.description + "</td>";
       result +=

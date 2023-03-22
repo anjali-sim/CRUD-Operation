@@ -26,7 +26,7 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
-        <a class="navbar-brand text-white">Product Management System</a>
+        <a class="navbar-brand text-white header-font-style">Product Management System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,29 +34,22 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Sort
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item text-dark" href="#" value="productid">Sort By ID</a>
-                        <a class="dropdown-item text-dark" href="#" value="productname">Sort By Name</a>
-                        <a class="dropdown-item text-dark" href="#">Sort By Price</a>
-                    </div>
-                </li>
+                <button id="button1" class="button" value="productid" onclick="sortItems('productid')">Sort By ID</button>
+                <button id="button2" class="button" value="productname" onclick="sortItems('productname')">Sort By Name</button>
+                <button id="button3" class="button" onclick="sortItems()">Sort By Price</button>
             </ul>
             <div class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                     id="searchProduct">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="text">Search</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="text"
+                    onclick="searchProductLists()">Search</button>
             </div>
         </div>
     </nav>
     <!-- Navigation Bar -->
 
     <!-- Form Section -->
-    <div class="container border border-dark p-5 mt-5">
+    <div class="container border border-dark mt-5 p-3">
         <form onsubmit="return false;">
             <legend class="mb-4"><strong>Product Form</strong></legend>
             <div class="form-group">
@@ -65,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Product Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter product name"
+                <input type="text" class="form-control" id="name" style placeholder="Enter product name"
                     onkeyup="validateForm()">
                 <span id="nameWarning"></span>
             </div>
@@ -93,10 +86,10 @@
     <!-- Form Section -->
 
     <!-- Displaying the product contents in the table -->
-    <div class="container">
-        <div class="row mt-5">
+    <div class="container mt-5" style="overflow-x:auto;">
+        <div class="row mb-3">
             <div class="col-12">
-                <table class="table table-bordered" id="crudTable">
+                <table class="table table-striped" id="crudTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -107,13 +100,14 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    </tbody>
                 </table>
+                <center><strong id="noData" style="font-size: 20px; padding-bottom: 10px;"></strong></center>
             </div>
         </div>
     </div>
     <!-- Displaying the product contents in the table -->
-
 
     <!-- Script Links -->
     <script src="./src/script/script.js"></script>
