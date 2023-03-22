@@ -1,3 +1,16 @@
+/**
+ * @projectName - CRUD-Operation
+ * 
+ * @description - The project is able to perform the CRUD operation in the local storage. It has the functionalities which enables user to add, update and delete
+ *                the data from the local storage as well as from the table that is used for displaying the data. It also has the search and sort functionality 
+ *                through which user can search for a particular product and display only that. The sorting function can sort the product based on three parameters
+ *                that is product id, name and price. The form is also validated properly. All the coding standards and description are written properly.
+ *
+ * @developer - anjali ghetia
+ * 
+ * @github - https://github.com/anjali-sim/CRUD-Operation
+ */
+
 // for selecting all elements having button as class
 const buttons = document.querySelectorAll(".button");
 
@@ -54,114 +67,115 @@ if (productList.length === 0) {
 }
 
 /**
-   * @function validateForm
-   * @description to validate the form inputs before submitting the data
-   * @params void
-   * @returns boolean
-   * Examples :
-   * - If any of the field is not entered, then an alert box pops up with the message that the particular field is required.
-   * - The price field can only contain numeric values, not less than one(negative numbers) and cannot start with zero(0).
-   */
+ * @function validateForm
+ * @description to validate the form inputs before submitting the data
+ * @params void
+ * @returns boolean
+ * Examples :
+ * - If any of the field is not entered, then a message appears that the particular field is required.
+ * - The price field can only contain numeric values, not less than one(negative numbers) and cannot start with zero(0).
+ * - If the image is is of large size or has invalid extension, then specific messages appear.
+ */
 function validateForm() {
-    let id = document.getElementById("id").value;
-    let name = document.getElementById("name").value;
-    let image = document.getElementById("image").value;
-    let price = document.getElementById("price").value;
-    let description = document.getElementById("description").value;
-  
-    if (name === "") {
-      nameWarning.innerText = "Name is Required.";
-      document.getElementById("nameWarning").style.color = "red";
-      return false;
-    }
-    nameWarning.innerHTML = '<i class="fa-sharp fa-regular fa-circle-check"></i>';
-  
-    if (price === "") {
-      document.getElementById("priceWarning").innerText = "Price is Required.";
-      document.getElementById("priceWarning").style.color = "red";
-      return false;
-    }
-  
-    if (price < 0) {
-      document.getElementById("priceWarning").innerText =
-        "Price must be positive.";
-      document.getElementById("priceWarning").style.color = "red";
-      return false;
-    }
-  
-    if (price.startsWith("0")) {
-      document.getElementById("priceWarning").innerText =
-        "Price must not start with zero(0).";
-      document.getElementById("priceWarning").style.color = "red";
-      return false;
-    }
-  
-    if (price === 0) {
-      document.getElementById("priceWarning").innerText =
-        "Price must not start with zero(0).";
-      document.getElementById("priceWarning").style.color = "red";
-      return false;
-    }
-    priceWarning.innerHTML =
-      '<i class="fa-sharp fa-regular fa-circle-check"></i>';
-  
-    if (description === "") {
-      document.getElementById("descriptionWarning").innerText =
-        "Description is Required.";
-      document.getElementById("descriptionWarning").style.color = "red";
-      return false;
-    }
-    descriptionWarning.innerHTML =
-      '<i class="fa-sharp fa-regular fa-circle-check"></i>';
-  
-    if (image === "") {
-      document.getElementById("imageWarning").innerText = "Image is Required.";
-      document.getElementById("imageWarning").style.color = "red";
-      return false;
-    }
-    const extension = image.split(".").pop().toLowerCase();
-  
-    // Check if the file extension is valid
-    if (
-      !(
-        extension === "jpg" ||
-        extension === "jpeg" ||
-        extension === "png" ||
-        extension === "gif" 
-      )
-    ) {
-      document.getElementById("imageWarning").innerText =
-        "Image must be of valid extension.";
-      document.getElementById("imageWarning").style.color = "red";
-      return false;
-    }
-  
-    const fileInput = document.getElementById("image");
-    const file = fileInput.files[0];
-    const fileSizeKB = file.size / 1024;
-    if(fileSizeKB > 1024){
-      document.getElementById("imageWarning").innerText =
+  let id = document.getElementById("id").value;
+  let name = document.getElementById("name").value;
+  let image = document.getElementById("image").value;
+  let price = document.getElementById("price").value;
+  let description = document.getElementById("description").value;
+
+  if (name === "") {
+    nameWarning.innerText = "Name is Required.";
+    document.getElementById("nameWarning").style.color = "red";
+    return false;
+  }
+  nameWarning.innerHTML = '<i class="fa-sharp fa-regular fa-circle-check"></i>';
+
+  if (price === "") {
+    document.getElementById("priceWarning").innerText = "Price is Required.";
+    document.getElementById("priceWarning").style.color = "red";
+    return false;
+  }
+
+  if (price < 0) {
+    document.getElementById("priceWarning").innerText =
+      "Price must be positive.";
+    document.getElementById("priceWarning").style.color = "red";
+    return false;
+  }
+
+  if (price.startsWith("0")) {
+    document.getElementById("priceWarning").innerText =
+      "Price must not start with zero(0).";
+    document.getElementById("priceWarning").style.color = "red";
+    return false;
+  }
+
+  if (price === 0) {
+    document.getElementById("priceWarning").innerText =
+      "Price must not start with zero(0).";
+    document.getElementById("priceWarning").style.color = "red";
+    return false;
+  }
+  priceWarning.innerHTML =
+    '<i class="fa-sharp fa-regular fa-circle-check"></i>';
+
+  if (description === "") {
+    document.getElementById("descriptionWarning").innerText =
+      "Description is Required.";
+    document.getElementById("descriptionWarning").style.color = "red";
+    return false;
+  }
+  descriptionWarning.innerHTML =
+    '<i class="fa-sharp fa-regular fa-circle-check"></i>';
+
+  if (image === "") {
+    document.getElementById("imageWarning").innerText = "Image is Required.";
+    document.getElementById("imageWarning").style.color = "red";
+    return false;
+  }
+  const extension = image.split(".").pop().toLowerCase();
+
+  // Check if the file extension is valid
+  if (
+    !(
+      extension === "jpg" ||
+      extension === "jpeg" ||
+      extension === "png" ||
+      extension === "gif"
+    )
+  ) {
+    document.getElementById("imageWarning").innerText =
+      "Image must be of valid extension.";
+    document.getElementById("imageWarning").style.color = "red";
+    return false;
+  }
+
+  const fileInput = document.getElementById("image");
+  const file = fileInput.files[0];
+  const fileSizeKB = file.size / 1024;
+  if (fileSizeKB > 1024) {
+    document.getElementById("imageWarning").innerText =
       "Image Size must be of less than 1 Mb.";
     document.getElementById("imageWarning").style.color = "red";
     return false;
-    }
-  
-    imageWarning.innerHTML =
-      '<i class="fa-sharp fa-regular fa-circle-check"></i>';
-    return true;
   }
 
-  /**
-   * @function clearValidation
-   * @description to clear the validation on adding or updating
-   * @params void
-   * @returns void
-   */
-  function clearValidation(){
-    document.getElementById("nameWarning").innerHTML = "";
-    document.getElementById("priceWarning").innerHTML = "";
-    document.getElementById("descriptionWarning").innerHTML = "";
-    document.getElementById("imageWarning").innerHTML = "";
+  imageWarning.innerHTML =
+    '<i class="fa-sharp fa-regular fa-circle-check"></i>';
+  return true;
+}
+
+/**
+ * @function clearValidation
+ * @description to clear the validation on adding or updating the data
+ * @params void
+ * @returns void
+ */
+function clearValidation() {
+  document.getElementById("nameWarning").innerHTML = "";
+  document.getElementById("priceWarning").innerHTML = "";
+  document.getElementById("descriptionWarning").innerHTML = "";
+  document.getElementById("imageWarning").innerHTML = "";
 }
 
 /**
@@ -263,7 +277,6 @@ async function addData() {
  * @param {*} index
  * @returns void
  */
-
 function deleteData(index) {
   if (confirm("Are you sure you want to delete this product?") === true) {
     let productList;
@@ -278,7 +291,6 @@ function deleteData(index) {
     displayData();
 
     productList = JSON.parse(localStorage.getItem("productList"));
-
     // for displaying the NO DATA FOUND message if all the product items are deleted from the table
     if (productList.length === 0) {
       document.getElementById("noData").innerHTML = "NO DATA FOUND";
@@ -300,7 +312,7 @@ function deleteData(index) {
  * - If the user has changed any particular input field, then the data will be updated and stored in the local storage and will be displayed in the table
  */
 async function updateData(index) {
-    clearValidation();
+  clearValidation();
   document.getElementById("submit").style.display = "none";
   document.getElementById("update").style.display = "block";
   var productList;
@@ -410,7 +422,7 @@ function searchProductLists() {
 /**
  * @function sortItems
  * @description to sort the items in the productList array based on the selected sort value (productid, productname, or price) and display the products in that order
- * @param {*} sortvalue 
+ * @param {*} sortvalue
  * @returns void
  */
 function sortItems(sortvalue) {
