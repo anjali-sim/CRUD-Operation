@@ -12,7 +12,7 @@
     <!-- CSS Link -->
 
     <!-- Icon Link -->
-    <link rel="icon" href="./src/assets/images/computer.png">
+    <link rel="icon" href="./src/assets/images/favicon.ico">
     <!-- Icon Link -->
 
     <!-- Bootstrap CSS Link -->
@@ -22,103 +22,102 @@
 
 </head>
 
-<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
+    <a class="navbar-brand text-white header-font-style">Product Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
-        <a class="navbar-brand text-white header-font-style">Product Management System</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <button id="button1" class="button" value="productid" onclick="sortItems('productid')">Sort By ID</button>
-                <button id="button2" class="button" value="productname" onclick="sortItems('productname')">Sort By Name</button>
-                <button id="button3" class="button" onclick="sortItems()">Sort By Price</button>
-            </ul>
-            <div class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                    id="searchProduct">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="text"
-                    onclick="searchProductLists()">Search</button>
-            </div>
-        </div>
-    </nav>
-    <!-- Navigation Bar -->
-
-    <!-- Form Section -->
-    <div class="container border border-dark mt-5 p-3">
-        <form onsubmit="return false;">
-            <legend class="mb-4"><strong>Product Form</strong></legend>
-            <div class="form-group">
-                <label for="id" hidden>Product ID</label>
-                <input type="text" class="form-control" id="id" hidden>
-            </div>
-            <div class="form-group">
-                <label for="name">Product Name</label>
-                <input type="text" class="form-control" id="name" style placeholder="Enter product name"
-                    onkeyup="validateForm()">
-                <span id="nameWarning"></span>
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" class="form-control" id="price" placeholder="Enter product price"
-                    onkeyup="validateForm()">
-                <span id="priceWarning"></span>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"
-                    onkeyup="validateForm()"></textarea>
-                <span id="descriptionWarning"></span>
-            </div>
-            <div class="form-group">
-                <label for="image">Image</label>
-                <input type="file" class="form-control-file" id="image" onkeyup="validateForm()">
-                <span id="imageWarning"></span>
-            </div>
-            <button type="text" class="btn btn-success mb-2" id="submit" onclick="addData()">Add Data</button>
-            <button type="text" class="btn btn-primary mb-2" id="update" onclick="updateData()">Update</button>
-        </form>
-    </div>
-    <!-- Form Section -->
-
-    <!-- Displaying the product contents in the table -->
-    <div class="container mt-5" style="overflow-x:auto;">
-        <div class="row mb-3">
-            <div class="col-12">
-                <table class="table table-striped" id="crudTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <center><strong id="noData" style="font-size: 20px; padding-bottom: 10px;"></strong></center>
-            </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <button id="button1" class="button" value="productid" onclick="sortItems('productid')">Sort By ID</button>
+            <button id="button2" class="button" value="productname" onclick="sortItems('productname')">Sort By
+                Name</button>
+            <button id="button3" class="button" onclick="sortItems()">Sort By Price</button>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                id="searchProduct">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="text"
+                onclick="searchProductLists()">Search</button>
         </div>
     </div>
-    <!-- Displaying the product contents in the table -->
+</nav>
+<!-- Navigation Bar -->
 
-    <!-- Script Links -->
-    <script src="./src/script/script.js"></script>
-    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
-    <!-- Script Links -->
+<!-- Form Section -->
+<div class="container border border-dark mt-5 p-3">
+    <form onsubmit="return false;">
+        <legend class="mb-4"><strong>Product Form</strong></legend>
+        <div class="form-group">
+            <label for="id" hidden>Product ID</label>
+            <input type="text" class="form-control" id="id" hidden>
+        </div>
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" class="form-control" id="name" style placeholder="Enter product name"
+                onkeyup="validateForm()">
+            <span id="nameWarning"></span>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter product price"
+                onkeyup="validateForm()">
+            <span id="priceWarning"></span>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"
+                onkeyup="validateForm()"></textarea>
+            <span id="descriptionWarning"></span>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" id="image" onkeyup="validateForm()">
+            <span id="imageWarning"></span>
+        </div>
+        <button type="text" class="btn btn-success mb-2" id="submit" onclick="addData()">Add Data</button>
+        <button type="text" class="btn btn-primary mb-2" id="update" onclick="updateData()">Update</button>
+    </form>
+</div>
+<!-- Form Section -->
+
+<!-- Displaying the product contents in the table -->
+<div class="container mt-5" style="overflow-x:auto;">
+    <div class="row mb-3">
+        <div class="col-12">
+            <table class="table table-striped" id="crudTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <center><strong id="noData" style="font-size: 20px; padding-bottom: 10px;"></strong></center>
+        </div>
+    </div>
+</div>
+<!-- Displaying the product contents in the table -->
+
+<!-- Script Links -->
+<script src="./src/script/script.js"></script>
+<script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+<!-- Script Links -->
 </body>
 
 </html>

@@ -27,9 +27,10 @@ body {
 }
 
 .selected {
-    background-color: grey;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
 }
-
 
 /* Style for displaying the tick mark on proper validation */
 span i {
@@ -70,3 +71,9 @@ span i {
 #crudTable {
     font-weight: 600;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+      width: 95% !important;
+    }
+  }
